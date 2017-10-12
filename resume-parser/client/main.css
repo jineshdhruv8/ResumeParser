@@ -1,0 +1,51 @@
+/* CSS declarations go here */
+body {
+  font-family: sans-serif;
+  background-color: #315481;
+  background-image: linear-gradient(to bottom, #315481, #918e82 100%);
+  background-attachment: fixed;
+ 
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+ 
+  padding: 0;
+  margin: 0;
+
+  font-size: 14px;
+}
+ 
+.container {
+  width: 100%;
+  border: 1px solid gray;
+
+}
+
+.upload{
+  width: 50%;
+  float: left;
+  text-align: center;
+}
+ 
+.parsed_result {
+  width: 50%;
+  float: left;
+  text-align: center;
+}
+
+
+header {
+  background: #d2edf4;
+  background-image: linear-gradient(to bottom, #d0edf5, #e1e5f0 100%);
+  text-align: center;
+  font-size: 25px;
+}
+ 
+
+h1 {
+  margin: 0;
+  display: inline-block;
+}
+ 
