@@ -494,6 +494,7 @@ def fetch_file_from_mongod():
         if counter == 12:
             break
         counter += 1
+    print "done"
 
 def get_info(key):
     global key_file_path
