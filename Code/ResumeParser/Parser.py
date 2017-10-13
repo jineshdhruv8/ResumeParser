@@ -31,6 +31,7 @@ key_file_path = "key.csv"
 text_dict = {}
 text_prop_dict = {}
 user_id = 1
+visited = []
 
 def read_PDF_Miner(fileObj):
     # Create a PDF parser object associated with the file object.
@@ -190,6 +191,7 @@ def extract_user_detail():
         return result
 
     user = User()
+
     neighbor = find_neighbor(top_text_id)
 
     full_name, email_flag, phone_flag, link_flag = get_name(top_text_id)
@@ -230,10 +232,13 @@ def extract_user_detail():
     return user
 
 def find_neighbor(key):
+    global visited
+
     min_vdist, min_hdist = 1000000, 1000000
     id = 0
     neighbor = ""
     name_object = text_prop_dict.get(key)
+    visited.append(name_object)
 
     for k, lt_obj in text_prop_dict.iteritems():
         # print "Key: ", k, "     vdist: ", name_object.vdistance(lt_obj), "              hdist: ", name_object.hdistance(
@@ -258,7 +263,9 @@ def find_neighbor(key):
     if neighbor == "":
         return None
 
+    visited.append(neighbor)
     return neighbor
+
 
 def extract_education_detail(user):
     dir_path = "/home/jinesh/Desktop/Capstone Project/Code/word_list/"
@@ -307,14 +314,11 @@ def extract_education_detail(user):
         max = -1
         # Search for major
         for major in major_word_list:
-            # print major
             if major.lower() in (text.lower()) and len(major) > max:
                 edu_obj.major = str(major).title()
                 edu_obj.degree = degree.title()
                 max = len(str(major))
                 degree_flag = True
-
-        # print "computer science" in text.lower()
 
         return degree_flag
 
@@ -326,7 +330,60 @@ def extract_education_detail(user):
             edu_date += str(temp_date.month) + "/" + str(temp_date.year) + " - "
         edu_obj.year = edu_date[:(len(edu_date) - 2)]
 
-    def get_shortlisted_keys(education_word_list, qualification_word_dict, university_word_dict,major_word_list):
+    def closest_neighbor(name_object,edu_obj, degree_list):
+        global visited
+
+        visited.append(name_object)
+
+        for k, lt_obj in text_prop_dict.iteritems():
+
+            text = str(unicodedata.normalize('NFKD', lt_obj.get_text()).encode('utf-8'))
+            if lt_obj not in visited:
+
+                max_score = 0
+                closest_university = ""
+                university_flag = False
+                for university, addr_list in university_word_dict.iteritems():
+
+                    score = fuzz.partial_ratio(str(university).lower(), text.lower())
+
+                    if score > 90 and max_score < score:
+                        max_score = score
+                        closest_university = university
+                        university_flag = True
+
+                if university_flag:
+                    degree_flag = False
+
+                    # Search for degree
+                    for degree in degree_list:
+                        if degree.lower() in text.lower():
+                            edu_obj.university = closest_university
+                            addr_list = university_word_dict.get(closest_university)
+                            edu_obj.set_addr(addr_list[0], addr_list[1], addr_list[2], "USA", addr_list[3])
+                            degree_flag = search_major(text, degree, edu_obj)
+
+                    # Search for degree if not found earlier
+                    if not degree_flag:
+                        degree_flag = search_major(text, degree, edu_obj)
+                        edu_obj.university = closest_university
+                        addr_list = university_word_dict.get(closest_university)
+                        edu_obj.set_addr(addr_list[0], addr_list[1], addr_list[2], "USA", addr_list[3])
+                        for key, val in qualification_word_dict.iteritems():
+                            if key in text:
+                                edu_obj.degree = val
+                                degree_flag = True
+                            if val in text and edu_obj.major == "":
+                                edu_obj.major = val
+                    search_date(text, edu_obj)
+                    if degree_flag:
+                        break
+
+                # When string match greater than equal to 95%
+                if max_score >= 95:
+                    break
+
+    def get_shortlisted_keys(education_word_list, qualification_word_dict, university_word_dict):
 
         edu_obj = Education()
         user.set_edu_obj(edu_obj)
@@ -364,9 +421,24 @@ def extract_education_detail(user):
                                         edu_obj.degree = val
                                     if val in text and edu_obj.major == "":
                                         edu_obj.major =  val
-
                             search_date(text, edu_obj)
+                            flag = False
+                            break
+
+                    # Find closest neighbor
+                    if flag:
+                        flag = False
+                        closest_neighbor(lt_obj,edu_obj,degree_list)
+
                     break
+
+            if not flag:
+                break
+
+
+
+
+
         user.display()
         edu_obj.display()
 
@@ -374,7 +446,7 @@ def extract_education_detail(user):
     qualification_word_dict, abbr_list, degree_list = get_qualification_word_list(dir_path)
     university_word_dict = get_university_word_list(dir_path)
     major_word_list = get_major_word_list(dir_path)
-    get_shortlisted_keys(education_word_list, qualification_word_dict, university_word_dict,major_word_list)
+    get_shortlisted_keys(education_word_list, qualification_word_dict, university_word_dict)
 
 
 def display_list(obj_list):
@@ -485,16 +557,15 @@ def fetch_file_from_mongod():
 
         if not k == "_id":
 
-            if counter > 11:
+            if counter > 12:
                 # print k, get_info(k)
                 print "Resume: ", get_info(k), "\n"
                 parse_resume(v)
                 print "\n\n\n\n"
 
-        if counter == 12:
+        if counter == 13:
             break
         counter += 1
-    print "done"
 
 def get_info(key):
     global key_file_path
