@@ -1254,9 +1254,7 @@ def fetch_file_from_mongod():
     cursor = user_id_collection.find()
     document_dict = cursor[0]
     for k,v in document_dict.iteritems():
-        # if not k == "_id" and k == "23": # Jinesh Dhruv
-        if not k == "_id" and k == "1":  # Krupa Shah
-        # if not k == "_id" and k == "4": # Shashank
+        if not k == "_id" and k == "1":
             print "Resume: ", get_info(k)
             parse_resume(v)
             print "\n"
