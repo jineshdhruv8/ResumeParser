@@ -29,7 +29,9 @@ from fuzzywuzzy import process
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
-key_file_path = "key.csv"
+
+
+key_file_path = "key.csv"   # It stores
 text_dict = {}
 text_prop_dict = {}
 user_id = 1
@@ -98,39 +100,9 @@ def read_pdf_miner(fileObj):
 
         id = 0
         for lt_obj in layout:
-            # # print(lt_obj.__class__.__name__)
-            # # print(lt_obj.bbox)
-            # # print(lt_obj.get_text())
-            # # print isinstance(lt_obj, pdfminer.layout.LTTextLine), '  ',isinstance(lt_obj, pdfminer.layout.LTText), '  ',isinstance(lt_obj, pdfminer.layout.LTTextLineVertical), '  ',isinstance(lt_obj, pdfminer.layout.LTTextBox), '  ',isinstance(lt_obj, pdfminer.layout.LTTextGroup), '  ',isinstance(lt_obj, pdfminer.layout.LTChar), '  ',isinstance(lt_obj, pdfminer.layout.Plane)
-            #
-            # if isinstance(lt_obj, pdfminer.layout.LTText):
-            #     print lt_obj.get_text()
-            # if isinstance(lt_obj, pdfminer.layout.LTTextBox):
-            #     print str(lt_obj.get_text())
 
-            # print isinstance(lt_obj, LTTextBoxVertical)
-            # if isinstance(lt_obj, pdfminer.layout.LTTextBox):
-            #     # print [lt_obj.get_text()]
-            #     for o in lt_obj._objs:
-            #         if isinstance(o, pdfminer.layout.LTTextLine):
-            #             text = o.get_text()
-            #             if text.strip():
-            #                 for c in o._objs:
-            #                     if isinstance(c, pdfminer.layout.LTChar):
-                                    # print c.get_text(),' fontname: ',c.fontname, c.size, c.height, c.matrix
-                                    # pass
-
+            # save horizontal text box content
             if isinstance(lt_obj, LTTextBoxHorizontal):
-                # print(lt_obj.__class__.__name__)
-                # print(lt_obj.bbox, " ", type(lt_obj.bbox))
-                # print ("Height: ", lt_obj.height, " Width: ", lt_obj.width)
-                # print(
-                # "Is Digit: ", lt_obj.get_text().isdigit(), "  Is Title: ", lt_obj.get_text().istitle(), "  Is Lower: ",
-                # lt_obj.get_text().islower())
-                # print("Is Alnum: ", lt_obj.get_text().isalnum(), "  Is Identifier: ", lt_obj.get_text().find("+"),
-                #       "  Is Space: ", lt_obj.get_text().isspace())
-                # print(lt_obj.get_text())
-
                 text_dict[id] = lt_obj.get_text()
                 text_prop_dict[id] = lt_obj
                 id += 1
@@ -439,10 +411,8 @@ def create_segments():
                 work_segment.append(text)
                 i += 1
                 flag = True
-                # print [text]
                 while True:
                     text = pdf_to_text_list[i]
-                    # print [text], not search_keyword(text, education_segment), not search_keyword(text, education_degree_category), not search_keyword(text, project_keywords) , not search_keyword( text, skill_keywords) , not search_keyword(text, other_keywords)
                     if not search_keyword(text, education_keywords) and not search_keyword(text,
                                                                                           education_degree_category) and not search_keyword(
                             text, project_keywords) and not search_keyword(text, skill_keywords) and not search_keyword(
@@ -491,7 +461,8 @@ def create_segments():
                 education_segment.append(text)
                 i += 1
                 flag = True
-                while True:
+                while True and i < len(pdf_to_text_list):
+
                     text = pdf_to_text_list[i]
                     if not search_keyword(text, work_experience_keywords) and not search_keyword(
                         text, project_keywords) and not search_keyword(text, skill_keywords) and not search_keyword(
@@ -575,9 +546,6 @@ def create_segments():
 
             if flag:
                 break
-
-
-
 
     def show(l):
         for row in l:
@@ -823,17 +791,17 @@ def create_segments():
     print "***************************************************************************************************"
     print "User segment: ", show(user_segment)
     print "***************************************************************************************************"
-    # print "Work segment: ", show(work_segment)
-    # print "***************************************************************************************************"
+    print "Work segment: ", show(work_segment)
+    print "***************************************************************************************************"
     print "Education segment: ",show(education_segment)
     print "***************************************************************************************************"
-    # print "Skill segment: ", show(skill_segment)
-    # print "***************************************************************************************************"
-    # print "Project segment: ", show(project_segment)
-    # print "***************************************************************************************************"
-    # print "Other segment: ", show(other_segment)
-    # print "***************************************************************************************************"
-    # print "\n\n"
+    print "Skill segment: ", show(skill_segment)
+    print "***************************************************************************************************"
+    print "Project segment: ", show(project_segment)
+    print "***************************************************************************************************"
+    print "Other segment: ", show(other_segment)
+    print "***************************************************************************************************"
+    print "\n\n"
 
 
     user = parse_user_segment()
@@ -883,27 +851,9 @@ def extract_work_exp_detail(user):
         min_vdist, min_hdist = 1000000, 1000000
         neighbor = ""
 
-        # print work_exp_obj.bbox
-        # print 'WORK EXP SEGMENT TEXT: ', str(unicodedata.normalize('NFKD', work_exp_obj.get_text()).encode('utf-8'))
-
-
-
         for k, lt_obj in text_prop_dict.iteritems():
 
             text = str(unicodedata.normalize('NFKD', lt_obj.get_text()).encode('utf-8'))
-            # print lt_obj.bbox
-            # print "vdist: ", work_exp_obj.vdistance(lt_obj), "              hdist: ", work_exp_obj.hdistance(
-            #     lt_obj), "            voverlap: ", work_exp_obj.voverlap(lt_obj), "     hoverlap: ", work_exp_obj.hoverlap(
-            #     lt_obj)
-            # print [text],not (work_exp_obj.vdistance(lt_obj) == 0 and work_exp_obj.hdistance(lt_obj) == 0),'\n'
-
-            # matches = list(datefinder.find_dates(text))
-            # check_date = ""
-            # for temp_date in matches:
-            #     check_date += str(temp_date.month) + "/" + str(temp_date.year) + " - "
-            # check_date = check_date[:(len(check_date) - 2)]
-            # print check_date, check_blank_lines(text)
-
 
             if (work_exp_obj.vdistance(lt_obj) + work_exp_obj.hdistance(lt_obj) <= (min_hdist + min_vdist) and not check_blank_lines(text)):
                 if (not (work_exp_obj.vdistance(lt_obj) == 0 and work_exp_obj.hdistance(lt_obj) == 0)):
@@ -912,7 +862,6 @@ def extract_work_exp_detail(user):
                     min_hdist = work_exp_obj.hdistance(lt_obj)
                     neighbor = lt_obj
 
-        # print 'Neighbor: ',str(unicodedata.normalize('NFKD', neighbor.get_text()).encode('utf-8'))
         return neighbor
 
     def find_work_experience_segment():
@@ -926,19 +875,14 @@ def extract_work_exp_detail(user):
                 word = str(word)
                 if word.title() in text or word.upper() in text or word.capitalize() in text:
                     flag = True
-                    # score = fuzz.partial_ratio(str(university).lower(), text.lower())
-                    # print 'Word: ', word
-                    # print 'Text: ', [text]
+
                     neighbor = closest_neighbor(lt_obj)
                     neighbor_text = str(unicodedata.normalize('NFKD', neighbor.get_text()).encode('utf-8'))
-                    # print  'neighbor text: ',[neighbor_text]
-                    #
                     break
 
             if flag:
                 break
         display()
-        # display_list()
 
     companies_word_list = get_company_list()
     work_experience_keywords = get_work_experience_keywords()
@@ -1234,9 +1178,9 @@ def parse_resume(key):
     convert_pdf_to_txt(obj)
     read_pdf_miner(obj)
     create_segments()
-    # user = extract_user_detail()
-    # extract_education_detail(user)
-    # extract_work_exp_detail(user)
+    user = extract_user_detail()
+    extract_education_detail(user)
+    extract_work_exp_detail(user)
 
 
 
@@ -1254,7 +1198,8 @@ def fetch_file_from_mongod():
     cursor = user_id_collection.find()
     document_dict = cursor[0]
     for k,v in document_dict.iteritems():
-        if not k == "_id" and k == "1":
+        if not k == "_id" and k == "21" or k == "42":
+        # if not k == "_id":
             print "Resume: ", get_info(k)
             parse_resume(v)
             print "\n"
