@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ca621fbd-89b5-4ee1-879a-b5b547ece447" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Test.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/achievement_detail.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project_detail.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/technical_skills.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/user_segment.py" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Parser.py" afterPath="$PROJECT_DIR$/Parser.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -402,7 +396,14 @@
       <option name="project" value="LOCAL" />
       <updated>1512160853325</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="updated parser code, removed print statements">
+      <created>1512161262738</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1512161262738</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
