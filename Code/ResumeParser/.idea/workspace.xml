@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="ca621fbd-89b5-4ee1-879a-b5b547ece447" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Parser.py" afterPath="$PROJECT_DIR$/Parser.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -17,8 +16,8 @@
       <file leaf-file-name="Parser.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Parser.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="574">
-              <caret line="1210" column="22" lean-forward="true" selection-start-line="1210" selection-start-column="22" selection-end-line="1210" selection-end-column="22" />
+            <state relative-caret-position="591">
+              <caret line="1193" column="22" lean-forward="true" selection-start-line="1193" selection-start-column="22" selection-end-line="1193" selection-end-column="22" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
                 <element signature="e#3166#8695#0" expanded="false" />
@@ -395,7 +394,14 @@
       <option name="project" value="LOCAL" />
       <updated>1509665457916</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="updated parser code, removed print statements">
+      <created>1512160804216</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1512160804217</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -448,7 +454,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added education detail extraction code" />
     <MESSAGE value="Added education &amp; work experience detail extraction code" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added education &amp; work experience detail extraction code" />
+    <MESSAGE value="updated parser code, removed print statements" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated parser code, removed print statements" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1247,8 +1254,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Parser.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="574">
-          <caret line="1210" column="22" lean-forward="true" selection-start-line="1210" selection-start-column="22" selection-end-line="1210" selection-end-column="22" />
+        <state relative-caret-position="591">
+          <caret line="1193" column="22" lean-forward="true" selection-start-line="1193" selection-start-column="22" selection-end-line="1193" selection-end-column="22" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
             <element signature="e#3166#8695#0" expanded="false" />
