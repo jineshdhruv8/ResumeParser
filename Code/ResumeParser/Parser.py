@@ -806,7 +806,7 @@ def create_segments():
 
     user = parse_user_segment()
     parse_education_segment(user)
-    user.display()
+    # user.display()
     user.education.display()
 
     # work_dict = parse_work_segment()
@@ -882,7 +882,7 @@ def extract_work_exp_detail(user):
 
             if flag:
                 break
-        display()
+        # display()
 
     companies_word_list = get_company_list()
     work_experience_keywords = get_work_experience_keywords()
