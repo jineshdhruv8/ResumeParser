@@ -2,6 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ca621fbd-89b5-4ee1-879a-b5b547ece447" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wordList/accomplishment_segment.csv" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wordList/companies.csv" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wordList/degree_category.csv" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wordList/education_segment.csv" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wordList/educational_major.csv" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wordList/objective_segment.csv" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wordList/project_segment.csv" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wordList/qualification_degree_list.csv" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wordList/skill_segment.csv" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wordList/university.csv" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wordList/work_experience_segment.csv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,8 +27,8 @@
       <file leaf-file-name="Parser.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Parser.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="591">
-              <caret line="1213" column="33" lean-forward="true" selection-start-line="1213" selection-start-column="33" selection-end-line="1216" selection-end-column="17" />
+            <state relative-caret-position="302">
+              <caret line="850" column="0" lean-forward="true" selection-start-line="850" selection-start-column="0" selection-end-line="850" selection-end-column="0" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
                 <element signature="e#1110#1973#0" expanded="false" />
@@ -371,7 +382,14 @@
       <option name="project" value="LOCAL" />
       <updated>1512767735866</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Commented the code, shifted wordlist to the code directory">
+      <created>1512767809406</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1512767809406</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -426,7 +444,8 @@
     <MESSAGE value="Added education &amp; work experience detail extraction code" />
     <MESSAGE value="updated parser code, removed print statements" />
     <MESSAGE value="removed unwanted python files" />
-    <option name="LAST_COMMIT_MESSAGE" value="removed unwanted python files" />
+    <MESSAGE value="Commented the code, shifted wordlist to the code directory" />
+    <option name="LAST_COMMIT_MESSAGE" value="Commented the code, shifted wordlist to the code directory" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1181,8 +1200,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Parser.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="591">
-          <caret line="1213" column="33" lean-forward="true" selection-start-line="1213" selection-start-column="33" selection-end-line="1216" selection-end-column="17" />
+        <state relative-caret-position="302">
+          <caret line="850" column="0" lean-forward="true" selection-start-line="850" selection-start-column="0" selection-end-line="850" selection-end-column="0" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
             <element signature="e#1110#1973#0" expanded="false" />
