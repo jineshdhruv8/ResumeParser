@@ -30,19 +30,26 @@ reload(sys)
 sys.setdefaultencoding('utf-8')
 
 
-
-key_file_path = "key.csv"   # It stores
+key_file_path = "key.csv"
 text_dict = {}
 text_prop_dict = {}
 user_id = 1
 visited = []
 pdf_to_text_list = []
-dir_path = "/home/jinesh/Desktop/Capstone Project/Code/word_list/"
+dir_path = "wordList/"
 
 
 def convert_pdf_to_txt(fileObj):
+    """
+    This function takes the file object and converts the file content to simple text format
+
+    :param fileObj: File object for reading the file
+    :return: None
+    """
+
     global pdf_to_text_list
 
+    # Convert pdf document into text document
     rsrcmgr = PDFResourceManager()
     retstr = StringIO()
     codec = 'utf-8'
@@ -64,6 +71,12 @@ def convert_pdf_to_txt(fileObj):
 
 
 def read_pdf_miner(fileObj):
+    """
+    This function takes the file object, read the file content and store it into a dictionary for processing
+
+    :param fileObj: File object for reading the file
+    :return: None
+    """
     # Create a PDF parser object associated with the file object.
     parser = PDFParser(fileObj)
 
@@ -109,6 +122,13 @@ def read_pdf_miner(fileObj):
 
 
 def extract_user_detail():
+    """
+    This function extracts user personal data like name, address, phone, email and profile links
+    from the resume
+
+    :return: None
+    """
+
     top_text_id = -1
     max_val = -100000000
 
@@ -121,7 +141,11 @@ def extract_user_detail():
             top_text_id = key
             max_val = lt_obj.bbox[1]
 
+
     def get_name(top_text_id):
+        """
+        Extract name from the text
+        """
 
         email_flag = False
         phone_flag = False
@@ -134,15 +158,18 @@ def extract_user_detail():
         sentences = [nltk.word_tokenize(sent) for sent in sentences]
         sentences = [nltk.pos_tag(sent) for sent in sentences]
         full_name = []
-        # print text, sentences[0]
+
         for item in sentences[0]:
+
             # convert tuple to list
             item_list = list(item)
+
             # Search consecutive Proper Noun
             if 'NNP' in item_list and (item_list[0].istitle() or str(item_list[0]).isupper()):
                 full_name.append(item_list[0])
             else:
                 break
+
         # check email in name object
         index = text.find("@")
         if index > 0:
@@ -159,9 +186,15 @@ def extract_user_detail():
         if len(urls) > 0:
             link_flag = True
 
-        return  name, email_flag, phone_flag, link_flag
+        return name, email_flag, phone_flag, link_flag
 
     def get_email(text):
+        """
+        Search email using regex from the given text
+        :param text: Text which consist of email address
+        :return: None
+        """
+
         text = str(unicodedata.normalize('NFKD', text).encode('utf-8'))
         index = text.find("@")
         if index > 0:
@@ -177,6 +210,7 @@ def extract_user_detail():
         return None
 
     def get_cell(text):
+
         text = str(unicodedata.normalize('NFKD', text).encode('utf-8'))
         cell = re.search("\d{3}[-\.\s]??\d{3}[-\.\s]??\d{4}|\(\d{3}\)\s*\d{3}[-\.\s]??\d{4}|\d{3}[-\.\s]??\d{4}", text)
         if cell:
@@ -191,6 +225,7 @@ def extract_user_detail():
             return None
 
     def get_zipcode(text):
+
         text = str(unicodedata.normalize('NFKD', text).encode('utf-8'))
         zip_code = re.search(r'\b\d{5}(?:[-\s]\d{4})?\b', text)
         # print zip_code
@@ -205,6 +240,7 @@ def extract_user_detail():
         return None
 
     def get_links(text):
+
         text = str(unicodedata.normalize('NFKD', text).encode('utf-8'))
         urls = re.findall('http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', text)
 
@@ -241,7 +277,9 @@ def extract_user_detail():
         user.set_phone(get_cell(text))
 
     if not neighbor == None:
+
         zipcode = get_zipcode(neighbor.get_text())
+
         # Use zipcode dictionary to find state and city
         search = ZipcodeSearchEngine()
         zip_obj = search.by_zipcode(zipcode)
@@ -262,6 +300,9 @@ def extract_user_detail():
 
 
 def find_neighbor(key):
+    """
+    This function will find closest text to the given text in the resume layout
+    """
     global visited
 
     min_vdist, min_hdist = 1000000, 1000000
@@ -319,7 +360,6 @@ def create_segments():
         abbr_list = []
         degree_list = []
         for row in reader:
-            # print row
             abbr_list.append(row[0])
             degree_list.append(row[1])
             qualification_word_dict[row[0]] = row[1]
@@ -340,8 +380,7 @@ def create_segments():
         for row in reader:
             value = [row[2], row[3], row[4], row[5]]
             university_word_dict[row[1]] = value
-        return  university_word_dict
-
+        return university_word_dict
 
     def search_keyword(text, keyword_list):
         for word in keyword_list:
@@ -476,21 +515,16 @@ def create_segments():
                 break
 
     def load_skill_segment():
+
         # Extract Skill Segment
         for i, text in enumerate(pdf_to_text_list):
             flag = False
             if search_keyword(text, skill_keywords):
                 skill_segment.append(text)
-                # print [text]
                 i += 1
                 flag = True
                 while True and i < len(pdf_to_text_list):
                     text = pdf_to_text_list[i]
-                    # print text
-                    # print [text], not search_keyword(text, education_keywords), not search_keyword(text,
-                    #                                                                       education_degree_category) , not search_keyword(
-                    #         text, project_keywords) , not search_keyword(text, work_experience_keywords) , not search_keyword(
-                    #         text, other_keywords)
                     if not search_keyword(text, education_keywords) and not search_keyword(text,
                                                                                           education_degree_category) and not search_keyword(
                             text, project_keywords) and not search_keyword(text, work_experience_keywords) and not search_keyword(
@@ -765,7 +799,6 @@ def create_segments():
                         break
         return work_dict
 
-
     # Load all keyword word list for segments
     education_keywords = get_keywords("education_segment.csv")
     work_experience_keywords = get_keywords("work_experience_segment.csv")
@@ -778,7 +811,6 @@ def create_segments():
     qualification_word_dict, abbr_list, degree_list = get_qualification_word_list(dir_path)
     university_word_dict = get_university_word_list(dir_path)
     major_word_list = get_major_word_list(dir_path)
-
 
     # Load all segments
     load_user_segment()
@@ -806,7 +838,6 @@ def create_segments():
 
     user = parse_user_segment()
     parse_education_segment(user)
-    # user.display()
     user.education.display()
 
     # work_dict = parse_work_segment()
@@ -1183,7 +1214,6 @@ def parse_resume(key):
     extract_work_exp_detail(user)
 
 
-
 def connect_db():
     from pymongo import MongoClient
     con = MongoClient(host='127.0.0.1', port=3001)
@@ -1253,6 +1283,7 @@ def write_csv_file(absolute_file_path, content_list, access_type):
 
 def main():
     fetch_file_from_mongod()
+
 
 if __name__ == '__main__':
     main()
