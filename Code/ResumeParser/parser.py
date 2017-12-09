@@ -618,6 +618,49 @@ def create_segments():
 
     def parse_education_segment(user):
 
+        def find_date_degree_major_gpa(text, date_flag, degree_flag, major_flag):
+            max_len = 0
+            # Find GPA
+            index = text.find("GPA")
+            if index >= 0:
+                edu_obj.gpa = (text[index + 4:]).strip()
+
+            # Find Date
+            if not date_flag:
+                matches = list(datefinder.find_dates(text))
+                edu_date = ""
+                if not matches == []:
+                    currentYear = datetime.now().year
+                    for temp_date in matches:
+                        if not temp_date.year > currentYear + 4:
+                            edu_date += str(temp_date.month) + "/" + str(temp_date.year) + " - "
+                    edu_obj.year = edu_date[:(len(edu_date) - 2)]
+                    date_flag = True
+
+            # Find Degree and Major
+            if not degree_flag:
+                for abbr, val in qualification_word_dict.iteritems():
+                    score1 = fuzz.ratio(str(abbr).lower(), text.lower())
+                    score2 = fuzz.ratio(str(val).lower(), text.lower())
+                    if score1 > 90 or score2 > 90 and max_len < len(val):
+                        max_len = len(val)
+                        degree = val
+
+                    if not major_flag and str(abbr).lower() in text.lower():
+                        edu_obj.major = val
+                        major_flag = True
+
+                for word in major_word_list:
+                    score3 = fuzz.partial_ratio(str(word).lower(), text.lower())
+                    if score3 > 90 and max_len < len(word):
+                        max_len = len(word)
+                        degree = word
+                        edu_obj.degree = degree
+                        date_flag = True
+
+
+            return  date_flag, degree_flag, major_flag
+
         degree_category = ['associate', 'bachelor', 'master', 'doctoral']
         text = str(education_segment[0])
 
@@ -635,6 +678,9 @@ def create_segments():
         max_score, longest_length = 0, 0
         closest_university_1, closest_university_2 = "", ""
         university_flag = False
+        degree_flag = False
+        date_flag = False
+        major_flag = False
         edu_obj = Education()
         user.education = edu_obj
         for i in range(0,len(education_segment)):
@@ -665,17 +711,14 @@ def create_segments():
                     addr_list = university_word_dict.get(closest_university)
                     edu_obj.set_addr(addr_list[0], addr_list[1], addr_list[2], "USA", addr_list[3])
 
-                    degree_flag = False
-                    date_flag = False
                     j = i
                     while(True):
                         max_len = 0
                         degree = ""
 
-
                         # Find GPA
                         index = text.find("GPA")
-                        # print [text], index
+
                         if index >= 0:
                             edu_obj.gpa = (text[index+4:]).strip()
 
@@ -691,7 +734,8 @@ def create_segments():
                                 edu_obj.year = edu_date[:(len(edu_date) - 2)]
                                 date_flag = True
 
-                        # Find Degree
+                        # Find Degree and Major
+                        # major_flag = False
                         if not degree_flag:
                             for abbr, val in qualification_word_dict.iteritems():
                                 score1 = fuzz.ratio(str(abbr).lower(), text.lower())
@@ -699,6 +743,10 @@ def create_segments():
                                 if score1 > 90 or score2 > 90 and max_len < len(val):
                                     max_len = len(val)
                                     degree = val
+
+                                if not major_flag and str(abbr).lower() in text.lower():
+                                    edu_obj.major = val
+                                    major_flag = True
 
                             for word in major_word_list:
                                 score3 = fuzz.partial_ratio(str(word).lower(), text.lower())
@@ -751,6 +799,10 @@ def create_segments():
                                             max_len = len(val)
                                             degree = val
 
+                                    if not major_flag and str(abbr).lower() in text.lower():
+                                        edu_obj.major = val
+                                        major_flag = True
+
                                     for word in major_word_list:
                                         score3 = fuzz.partial_ratio(str(word).lower(), text.lower())
                                         if score3 > 90 and max_len < len(word):
@@ -760,8 +812,12 @@ def create_segments():
 
                             break
 
+                else:
+                    # Search before university name in the education segment
+                    date_flag, degree_flag, major_flag = find_date_degree_major_gpa(text, date_flag, degree_flag, major_flag)
+
         if edu_obj.university == "":
-            print "Call Old method"
+            # print "Call Old method"
             extract_education_detail(edu_obj)
 
     def parse_work_segment():
@@ -1228,8 +1284,8 @@ def fetch_file_from_mongod():
     cursor = user_id_collection.find()
     document_dict = cursor[0]
     for k,v in document_dict.iteritems():
-        if not k == "_id" and k == "21" or k == "42":
-        # if not k == "_id":
+        # if not k == "_id" and k == "21" or k == "42":
+        if not k == "_id":
             print "Resume: ", get_info(k)
             parse_resume(v)
             print "\n"
