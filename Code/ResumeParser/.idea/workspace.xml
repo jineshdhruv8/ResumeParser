@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ca621fbd-89b5-4ee1-879a-b5b547ece447" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/database/DHRUV_JINESH_SOFTWARE_RESUME.pdf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/database/Lakshmi_Ravi_Resume.pdf" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Parser.py" afterPath="$PROJECT_DIR$/parser.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/insert_pdf.py" afterPath="$PROJECT_DIR$/insert_pdf.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/key.csv" afterPath="$PROJECT_DIR$/key.csv" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -409,7 +404,14 @@
       <option name="project" value="LOCAL" />
       <updated>1512767809406</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="updated insert pdf file">
+      <created>1512847925016</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1512847925016</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -465,7 +467,8 @@
     <MESSAGE value="updated parser code, removed print statements" />
     <MESSAGE value="removed unwanted python files" />
     <MESSAGE value="Commented the code, shifted wordlist to the code directory" />
-    <option name="LAST_COMMIT_MESSAGE" value="Commented the code, shifted wordlist to the code directory" />
+    <MESSAGE value="updated insert pdf file" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated insert pdf file" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
