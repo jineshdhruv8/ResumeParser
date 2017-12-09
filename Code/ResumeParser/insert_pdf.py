@@ -81,7 +81,8 @@ def upload_file_dir(dir_path):
 
 
 def main():
-    dir_path = "/home/jinesh/Desktop/PDF/"
+    # dir_path = "/home/jinesh/Desktop/PDF/"
+    dir_path = "database/"
     upload_file_dir(dir_path)
 
 

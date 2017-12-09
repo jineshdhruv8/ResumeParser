@@ -2,22 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ca621fbd-89b5-4ee1-879a-b5b547ece447" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../word_list/accomplishment_segment.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../word_list/companies.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../word_list/degree_category.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../word_list/education_segment.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../word_list/educational_major.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../word_list/objective_segment.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../word_list/project_segment.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../word_list/qualification_degree_list.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../word_list/skill_segment.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../word_list/university.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../word_list/work_experience_segment.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../images/edu_seg.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../images/education_seg.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../images/personal_feature.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../images/seg.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../simple-todos" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/database/DHRUV_JINESH_SOFTWARE_RESUME.pdf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/database/Lakshmi_Ravi_Resume.pdf" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Parser.py" afterPath="$PROJECT_DIR$/parser.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/insert_pdf.py" afterPath="$PROJECT_DIR$/insert_pdf.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/key.csv" afterPath="$PROJECT_DIR$/key.csv" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -28,13 +18,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Parser.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Parser.py">
+      <file leaf-file-name="parser.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/parser.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="850" column="0" lean-forward="false" selection-start-line="850" selection-start-column="0" selection-end-line="850" selection-end-column="0" />
+            <state relative-caret-position="272">
+              <caret line="16" column="18" lean-forward="true" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
               <folding>
-                <element signature="e#0#10#0" expanded="true" />
                 <element signature="e#1110#1973#0" expanded="false" />
                 <element signature="e#2009#3497#0" expanded="false" />
                 <element signature="e#3531#9403#0" expanded="false" />
@@ -84,6 +73,28 @@
                 <element signature="e#47539#47726#0" expanded="false" />
                 <element signature="e#47800#48457#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="insert_pdf.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/insert_pdf.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="409">
+              <caret line="78" column="0" lean-forward="true" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#13#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="key.csv" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/key.csv">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -144,14 +155,14 @@
         <option value="$PROJECT_DIR$/user_detail.py" />
         <option value="$PROJECT_DIR$/education_detail.py" />
         <option value="$PROJECT_DIR$/companyExtract.py" />
-        <option value="$PROJECT_DIR$/insert_pdf.py" />
         <option value="$PROJECT_DIR$/work_experience.py" />
         <option value="$PROJECT_DIR$/user_detail_segment.py" />
         <option value="$PROJECT_DIR$/user_segment.py" />
         <option value="$PROJECT_DIR$/../../../Python_Meteor_Test/todos/example.py" />
         <option value="$PROJECT_DIR$/Test.py" />
-        <option value="$PROJECT_DIR$/key.csv" />
         <option value="$PROJECT_DIR$/Parser.py" />
+        <option value="$PROJECT_DIR$/insert_pdf.py" />
+        <option value="$PROJECT_DIR$/key.csv" />
       </list>
     </option>
   </component>
@@ -197,6 +208,11 @@
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../Python_Meteor_Test/todos/example.py" />
   </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/database" />
+    </key>
+  </component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -209,7 +225,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.Parser">
+  <component name="RunManager" selected="Python.insert_pdf">
     <configuration name="Parser" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -222,7 +238,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="ResumeParser" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Parser.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/parser.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -304,8 +320,8 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.Parser" />
-        <item index="1" class="java.lang.String" itemvalue="Python.insert_pdf" />
+        <item index="0" class="java.lang.String" itemvalue="Python.insert_pdf" />
+        <item index="1" class="java.lang.String" itemvalue="Python.Parser" />
         <item index="2" class="java.lang.String" itemvalue="Python.Test" />
         <item index="3" class="java.lang.String" itemvalue="Python.example" />
         <item index="4" class="java.lang.String" itemvalue="Python.companyExtract" />
@@ -405,7 +421,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.32947367" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" x="1985" y="366" width="1615" height="313" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32911393" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23210634" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" x="65" y="-4" width="1855" height="1084" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28323108" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" x="65" y="-4" width="1855" height="1084" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -466,12 +482,11 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/project_detail.py" />
-    <entry file="file://$PROJECT_DIR$/Parser.py">
+    <entry file="file://$PROJECT_DIR$/parser.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#10#0" expanded="true" />
             <element signature="e#1110#1973#0" expanded="false" />
             <element signature="e#2009#3497#0" expanded="false" />
             <element signature="e#3531#9403#0" expanded="false" />
@@ -539,12 +554,11 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/project_detail.py" />
-    <entry file="file://$PROJECT_DIR$/Parser.py">
+    <entry file="file://$PROJECT_DIR$/parser.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#10#0" expanded="true" />
             <element signature="e#1110#1973#0" expanded="false" />
             <element signature="e#2009#3497#0" expanded="false" />
             <element signature="e#3531#9403#0" expanded="false" />
@@ -619,12 +633,11 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/project_detail.py" />
-    <entry file="file://$PROJECT_DIR$/Parser.py">
+    <entry file="file://$PROJECT_DIR$/parser.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#10#0" expanded="true" />
             <element signature="e#1110#1973#0" expanded="false" />
             <element signature="e#2009#3497#0" expanded="false" />
             <element signature="e#3531#9403#0" expanded="false" />
@@ -692,12 +705,11 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/project_detail.py" />
-    <entry file="file://$PROJECT_DIR$/Parser.py">
+    <entry file="file://$PROJECT_DIR$/parser.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#10#0" expanded="true" />
             <element signature="e#1110#1973#0" expanded="false" />
             <element signature="e#2009#3497#0" expanded="false" />
             <element signature="e#3531#9403#0" expanded="false" />
@@ -772,12 +784,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Parser.py">
+    <entry file="file://$PROJECT_DIR$/parser.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#10#0" expanded="true" />
             <element signature="e#1110#1973#0" expanded="false" />
             <element signature="e#2009#3497#0" expanded="false" />
             <element signature="e#3531#9403#0" expanded="false" />
@@ -852,12 +863,11 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/project_detail.py" />
-    <entry file="file://$PROJECT_DIR$/Parser.py">
+    <entry file="file://$PROJECT_DIR$/parser.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#10#0" expanded="true" />
             <element signature="e#1110#1973#0" expanded="false" />
             <element signature="e#2009#3497#0" expanded="false" />
             <element signature="e#3531#9403#0" expanded="false" />
@@ -925,12 +935,11 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/project_detail.py" />
-    <entry file="file://$PROJECT_DIR$/Parser.py">
+    <entry file="file://$PROJECT_DIR$/parser.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#10#0" expanded="true" />
             <element signature="e#1110#1973#0" expanded="false" />
             <element signature="e#2009#3497#0" expanded="false" />
             <element signature="e#3531#9403#0" expanded="false" />
@@ -997,12 +1006,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Parser.py">
+    <entry file="file://$PROJECT_DIR$/parser.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#10#0" expanded="true" />
             <element signature="e#1110#1973#0" expanded="false" />
             <element signature="e#2009#3497#0" expanded="false" />
             <element signature="e#3531#9403#0" expanded="false" />
@@ -1069,12 +1077,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Parser.py">
+    <entry file="file://$PROJECT_DIR$/parser.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#10#0" expanded="true" />
             <element signature="e#1110#1973#0" expanded="false" />
             <element signature="e#2009#3497#0" expanded="false" />
             <element signature="e#3531#9403#0" expanded="false" />
@@ -1148,13 +1155,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/key.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="57" lean-forward="true" selection-start-line="25" selection-start-column="57" selection-end-line="25" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/project_detail.py" />
     <entry file="file://$PROJECT_DIR$/technical_skills.py" />
     <entry file="file://$PROJECT_DIR$/achievement_detail.py" />
@@ -1164,6 +1164,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="160">
           <caret line="48" column="23" lean-forward="true" selection-start-line="48" selection-start-column="23" selection-end-line="48" selection-end-column="23" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1171,6 +1172,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1178,6 +1180,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1360">
           <caret line="80" column="0" lean-forward="false" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1185,22 +1188,33 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="364">
           <caret line="109" column="17" lean-forward="true" selection-start-line="109" selection-start-column="17" selection-end-line="109" selection-end-column="17" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/insert_pdf.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="347">
-          <caret line="24" column="20" lean-forward="true" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="20" />
+        <state relative-caret-position="409">
+          <caret line="78" column="0" lean-forward="true" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Parser.py">
+    <entry file="file://$PROJECT_DIR$/key.csv">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="850" column="0" lean-forward="false" selection-start-line="850" selection-start-column="0" selection-end-line="850" selection-end-column="0" />
+        <state relative-caret-position="51">
+          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/parser.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="18" lean-forward="true" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
           <folding>
-            <element signature="e#0#10#0" expanded="true" />
             <element signature="e#1110#1973#0" expanded="false" />
             <element signature="e#2009#3497#0" expanded="false" />
             <element signature="e#3531#9403#0" expanded="false" />
