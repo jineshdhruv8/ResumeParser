@@ -1031,6 +1031,7 @@ def extract_education_detail(edu_obj):
         return degree_flag
 
     def search_date(text, edu_obj):
+
         # Search for Date
         matches = list(datefinder.find_dates(text))
         edu_date = ""
@@ -1284,7 +1285,6 @@ def fetch_file_from_mongod():
     cursor = user_id_collection.find()
     document_dict = cursor[0]
     for k,v in document_dict.iteritems():
-        # if not k == "_id" and k == "21" or k == "42":
         if not k == "_id":
             print "Resume: ", get_info(k)
             parse_resume(v)
